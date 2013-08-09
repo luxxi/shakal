@@ -215,7 +215,12 @@ if (typeof Number.prototype.toRad == 'undefined') {
 }
 
 function OpenDialog(id) {
-    $("#" + id).dialog();
+    $("#fadeDiv").addClass("fade");
+    $("#" + id).dialog({
+        beforeClose: function(event, ui) {
+            $("#fadeDiv").removeClass("fade");
+        }
+    });
 }
 
 function Login(username, pass) {
@@ -450,6 +455,7 @@ var onGpsSuccess = function(position) {
         y: position.coords.longitude
     }, function(d) {
         if (d != "ok") {
+            d = JSON.parse(d);
             dead = true;
             $("#killedBy").html("<p>You were killed by " + d["killed_by"] + ".</p>");
             $("#killedBy").dialog();

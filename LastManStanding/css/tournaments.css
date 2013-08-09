@@ -46,7 +46,9 @@ li{
 .num{
     float:left;
     width: 25px;
-    height:70px;
+    height:25px;
+    margin-left:6%;
+    margin-top:7%;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -76,4 +78,8 @@ li{
 .player{
     height:18px;
     border:solid 1px green;
+}
+
+#wrapper {
+    overflow:auto;
 }
