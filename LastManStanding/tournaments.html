@@ -5,6 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/tournaments.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.css" />
         <script type="text/javascript" src="cordova.js"></script>
         <script type="application/javascript" src="js/fastclick.js"></script> 
@@ -14,7 +15,12 @@
         <title>Shakal</title>
     </head>
     <body onload="GetTournaments()">
-        <header><a href="index.html">LOGO</a><button id="logoutBtn">Logout</button></header>
+        <header>
+            Tournaments  
+        </header>
+        <div class="button" id="createBtnHref">Create</div>
+        
+            <button id="logoutBtn">Logout</button>
         <div>
             <button id="startBtn">Start</button>
         </div>
@@ -22,7 +28,6 @@
             <ul id="tournaments">
                 
             </ul>
-            <div class="button" id="createBtnHref">Create</div>
         </div>
         
         <div id="passwordDiv" title="Password" style="display:none">

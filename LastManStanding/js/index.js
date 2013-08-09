@@ -64,6 +64,7 @@ function onDeviceReady() {
             var tournamentName = $("#tournamentName").val();
             var numOfPlayers = $("#numOfPlayers").val();
             var tournamentPass = $("#tournamentPass").val();
+            var tournamentDate = $("#tournamentDate").val();
             var tournamentTime = $("#tournamentTime").val();
            
             $.post(serviceUrl, {
@@ -71,7 +72,7 @@ function onDeviceReady() {
                 name: tournamentName,
                 number: numOfPlayers,
                 password: tournamentPass,
-                timeframe: tournamentTime,
+                timeframe: tournamentDate + " " + tournamentTime,
                 username: localStorage.Username
             }, function(d) {
                 window.location.href = "tournament.html?tournament=" + tournamentName;
@@ -121,8 +122,6 @@ function onDeviceReady() {
     });
     
     $(document).ready(function() {
-        
-        
         $.ajaxSetup({async:true});
         $("#targetAboutBtn").click(function() {
             $("#neki").addClass("fade");
@@ -144,7 +143,6 @@ function onDeviceReady() {
             SetGame();
             OpenDialog("userLocationDiv");
         });
-        
     });
 
     $(document).ready(function() {
@@ -154,18 +152,23 @@ function onDeviceReady() {
                     var x = position.coords.latitude;
                     var y = position.coords.longitude;
                     $.post(serviceUrl, {
-                        act: "get_target_current_position",
-                        username: localStorage.Username
+                        act: "hit",
+                        username: localStorage.Username,
+                        x: x,
+                        y: y
                     }, function(d) {
-                        d = JSON.parse(d);
-                        var hitDistance = CompareLocations(x, y, d["statistics"]["geo_x"], d["statistics"]["geo_y"], METERS_HIT);
-                        if (hitDistance <= METERS_HIT) {
-                            $("#targetDown").dialog();
-                            var username = localStorage.Username;
-                            KillTarget(username);
+                        try {
+                            d = JSON.parse(d);
+                            if (d["kill"] == true) {
+                                $("#targetDown").dialog();
+                                SetGame();
+                            }
+                            else {
+                                alert("You missed for " + d['distance'] + " meters");
+                            }
                         }
-                        else {
-                            alert("Missed for " + hitDistance + " meters.");
+                        catch (e) {
+                            alert("You have to wait " + d + " seconds to make next shot");
                         }
                     });
                 })
@@ -213,10 +216,6 @@ if (typeof Number.prototype.toRad == 'undefined') {
 
 function OpenDialog(id) {
     $("#" + id).dialog();
-    $('#targetAboutDiv').live('pagehide',function(event) {
-          console.log('pagehide');
-            alert("test");
-      });
 }
 
 function Login(username, pass) {
@@ -264,10 +263,10 @@ function GetTournaments() {
         d = JSON.parse(d);
         for (var i = 0; i < d.length; i++) {
             if (d[i]["pass"] == "") {
-                $("#tournaments").append("<li onclick=\"Join(this, true)\">" + d[i]["name"] + " | " + d[i]["count"] + "/" + d[i]["max_users"] + "</li>");
+                $("#tournaments").append("<li onclick=\"Join(this, true)\"><div class='num'>1</div><div class='tournament'><p class='name'>" + d[i]["name"] + "</p><p class='player'>" + d[i]["count"] + "/" + d[i]["max_users"] + "</p></div></li>");
             }
             else {
-                $("#tournaments").append("<li onclick=\"Join(this, false, '" + d[i]["pass"] + "')\">" + d[i]["name"] + " | " + d[i]["count"] + "/" + d[i]["max_users"] + "</li>");
+                $("#tournaments").append("<li onclick=\"Join(this, false, '" + d[i]["pass"] + "')\"><div class='num'>1</div><div class='tournament'></p><p class='player'>" + d[i]["name"] + "</p><p class='player'>" + d[i]["count"] + "/" + d[i]["max_users"] + "</p></div></li>");
             }
         }
     });
@@ -276,12 +275,12 @@ function GetTournaments() {
 function Join(ele, allowed, pas) {
     $.ajaxSetup({async:false});
     if (allowed) {
-        var tour = ele.innerHTML.split(" | ")[0];
+        var tour = ele.children[1].children[0].innerHTML.split(" | ")[0];
         AddUserInTournament(localStorage.Username, tour);
         window.location.href = "tournament.html?tournament=" + tour;
     }
     else {
-        var tour = ele.innerHTML.split(" | ")[0];
+        var tour = ele.children[1].children[0].innerHTML.split(" | ")[0];
         var pass = window.prompt(tour, "Please enter tournament password");
         //$("#passwordDiv").dialog();
         if (pass == pas) {
@@ -296,28 +295,29 @@ function Join(ele, allowed, pas) {
 
 function GetTournamentInfo() {
     var tournament = getParameterByName("tournament");
+    
     $.post(serviceUrl, {
         act: "get_tournament_info",
         tournament: tournament
     }, function(d) {
         d = JSON.parse(d);
         $("#tournament_name").html(d["name"]);
+        $("#tournament_starts").html("Tournament starts: " + d["start"]);
         $("#tournament_num").html(d["count"] + " / " + d["max_users"]);
         for (var i = 0; i < d["users"].length; i++) {
             $("#tournament_users").append("<li>" + d["users"][i]["email"] + "</li>");
         }
         /* Začne turnir če je dovolj ljudi v njem
         if (d["count"] >= d["max_users"]) {
-            $.post(serviceUrl, {
-                act: "start_tournament",
-                tournament: d["name"]
-            }, function(d) {
-            });
-            // Odštevanje do začetka turnirja
-            StartTimer($("#timer"), SECONDS_BEFORE_START, function() {
-                window.location.href = "game.html"
-            });
-            
+        $.post(serviceUrl, {
+        act: "start_tournament",
+        tournament: d["name"]
+        }, function(d) {
+        });
+        // Odštevanje do začetka turnirja
+        StartTimer($("#timer"), SECONDS_BEFORE_START, function() {
+        window.location.href = "game.html"
+        });
         }
         */
         //alert(d);
@@ -350,15 +350,15 @@ function RefreshTournament(tournament) {
         /*
         // Začne turnir če je dovolj ljudi v turnirju
         if (d["count"] >= d["max_users"]) {
-            $.post(serviceUrl, {
-                act: "start_tournament",
-                tournament: d["name"]
-            }, function(d) {
-            });
-            // Odštevanje do začetka turnirja
-            StartTimer($("#timer"), SECONDS_BEFORE_START, function() {
-                window.location.href = "game.html"
-            }); 
+        $.post(serviceUrl, {
+        act: "start_tournament",
+        tournament: d["name"]
+        }, function(d) {
+        });
+        // Odštevanje do začetka turnirja
+        StartTimer($("#timer"), SECONDS_BEFORE_START, function() {
+        window.location.href = "game.html"
+        }); 
         }
         */
     });
