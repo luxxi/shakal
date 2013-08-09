@@ -458,7 +458,11 @@ var onGpsSuccess = function(position) {
             d = JSON.parse(d);
             dead = true;
             $("#killedBy").html("<p>You were killed by " + d["killed_by"] + ".</p>");
-            $("#killedBy").dialog();
+            $("#killedBy").dialog({
+                beforeClose: function() {
+                    window.location.href = "tournaments.html";
+                }
+            });
         }
     });
 };
