@@ -1,3 +1,10 @@
+@font-face{
+	font-family: Open_Sans;
+	src: url(OpenSans-Regular.ttf);
+	font-weight: normal;
+}
+
+
 body {
     width: 100%;
 	height: 100%;
@@ -21,13 +28,45 @@ header{
 	text-shadow: 0px -1px 2px rgba(0, 0, 0, 1);
 }
 
-ul{
+.menu{
+    padding-top:3%;
+    padding-bottom:1px;
+}
+
+.menu ul{
+    list-style-type:none;
+    padding-left: 14%;
+    padding-right:14%;
+}
+    
+.menu li{
+    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,1,.25);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,1,.25);
+	box-shadow: 0 1px 3px rgba(0,0,1,.25); 
+    
+    display:inline;
+    padding:10px;
+    margin-right:10px;
+    
+    font-family: Open sans, sans-serif;
+	font-size: 18px;
+	color: #a4a8ae;
+}
+
+.list{
+    
+}
+
+.list ul{
     list-style-type:none;
     padding:0;
 }
 
-li{
-    border:solid 1px black;
+.list li{
     width:100%;
     height:75px;
     margin:0 auto;
@@ -63,7 +102,6 @@ li{
 }
 
 .tournament{
-     border:solid 1px black;
     width:80%;
     height:75px;
     float:right;
@@ -71,14 +109,13 @@ li{
 
 .name{
     height:18px;
-    border:solid 1px red;
+    font-size:18pt;
+    font-weight:bold;
 }
 
 .player{
     height:18px;
-    border:solid 1px green;
+    color:#a4a8ae;
 }
 
-#wrapper {
-    overflow:auto;
-}
+
