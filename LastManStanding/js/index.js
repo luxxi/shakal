@@ -109,7 +109,7 @@ function onDeviceReady() {
     
     $(document).ready(function() {
         $("#logoutBtn").click(function() {
-            Logout();
+            LogoutFromApp();
         }) 
     });
     
@@ -118,6 +118,13 @@ function onDeviceReady() {
             var username = localStorage.Username;
             var tournamentName = $("#tournament_name").val();
             LogoutOfTournament(username, tournamentName); 
+        });
+    });
+    
+    $(document).ready(function() {
+        $("#refreshTournamentsBtn").click(function() {
+            $("#tournaments").html("");
+            GetTournaments();
         });
     });
     
@@ -148,6 +155,7 @@ function onDeviceReady() {
     $(document).ready(function() {
         $("#hitBtn").click(function() {
             if (!dead) {
+                navigator.notification.vibrate(2500);
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var x = position.coords.latitude;
                     var y = position.coords.longitude;
@@ -306,6 +314,7 @@ function GetTournamentInfo() {
         tournament: tournament
     }, function(d) {
         d = JSON.parse(d);
+        
         $("#tournament_name").html(d["name"]);
         $("#tournament_starts").html("Tournament starts: " + d["start"]);
         $("#tournament_num").html(d["count"] + " / " + d["max_users"]);
@@ -346,6 +355,9 @@ function RefreshTournament(tournament) {
         tournament: tournament
     }, function(d) {
         d = JSON.parse(d);
+        if(d["status_id"] == "2"){
+            window.location.href = "game.html";
+        }
         $("#tournament_name").html(d["name"]);
         $("#tournament_num").html(d["count"] + " / " + d["max_users"]);
         $("#tournament_users").html("");
@@ -372,6 +384,11 @@ function RefreshTournament(tournament) {
 function Logout() {
     $.ajaxSetup({async:false});
     LogoutOfTournament(localStorage.Username);
+    localStorage.clear();
+    window.location.href = "index.html";
+}
+
+function LogoutFromApp() {
     localStorage.clear();
     window.location.href = "index.html";
 }
