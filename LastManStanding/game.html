@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.css" />
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="application/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <title>Shakal</title>
+
+        <link rel="stylesheet" href="css/hit.css" />
+    </head>
+    <body onload="SetGame()">
+        <div id="fadeDiv">
+            <header>
+                Last Man Standing <a href="#" id="logoutBtn">Logout</a>
+            </header>
+
+            <div class="top">
+                <ul>
+                    <li>
+                        <h3>Target:</h3>
+                    </li>
+                    <li>
+                        <div class="TargetLocation">
+                            <h2 id="targetLocationBtn">Location</h2>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="TargetAbout">
+                            <h2 id="targetAboutBtn">About</h2>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="middle">
+                <div class="hit_button" id="hitBtn"></div>
+            </div>
+
+            <div class="bottom">
+                <ul>
+                    <li>
+                        <h3>Hunter:</h3>
+                    </li>
+                    <li>
+                        <div class="UserLocation">
+                            <h2 id="userLocationBtn">Location</h2>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="UserAbout">
+                            <h2 id="userAboutBtn">About</h2>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="targetAboutDiv" title="Target info" style="display:none;">
+                <img src="img/default.jpg" width="150" />
+                <br />
+                <div id="target_name"></div><br />
+                <div id="target_description"></div>
+                <div id="target_statistics">Tuki še pride statisika</div>
+            </div>
+
+            <div id="targetLocationDiv" title="Target location" style="display:none"></div>
+
+            <div id="userAboutDiv" title="User info" style="display:none">
+                <img src="img/default.jpg" width="150" />
+                <br />
+                <div id="user_name"></div><br />
+                <div id="user_description"></div>
+                <div id="user_statistics">Tuki še pride statisika</div>
+            </div>
+            <div id="userLocationDiv" title="User location" style="display:none">
+
+            </div>
+            <div id="targetDown" title="Congratulations" style="display:none">
+                <p>Congratulations you eliminated target, we have new mission for you.</p>
+            </div>
+
+            <div id="wonDiv" title="Congratulations" style="display:none">
+                <p>Congratulations you are the last man standing!</p>
+            </div>
+
+            <div id="killedBy" title="Dead" style="display:none">
+
+            </div>
+        </div>
+    </body>
+</html>

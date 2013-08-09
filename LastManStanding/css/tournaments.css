@@ -1,0 +1,121 @@
+@font-face{
+	font-family: Open_Sans;
+	src: url(OpenSans-Regular.ttf);
+	font-weight: normal;
+}
+
+
+body {
+    width: 100%;
+	height: 100%;
+	background-color: #e5e8ed;
+    margin:0;
+    padding:0;
+}
+
+header{
+	background-color: #2c486b;
+	background-image: -webkit-linear-gradient(top, #3d6189, #2c486b);
+	height: 40px;
+	border-bottom: solid 1px black;
+    
+	color: #cfe6ff;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+	font-family: Open sans, sans-serif;
+    
+	text-shadow: 0px -1px 2px rgba(0, 0, 0, 1);
+}
+
+.menu{
+    padding-top:3%;
+    padding-bottom:1px;
+}
+
+.menu ul{
+    list-style-type:none;
+    padding-left: 14%;
+    padding-right:14%;
+}
+    
+.menu li{
+    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,1,.25);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,1,.25);
+	box-shadow: 0 1px 3px rgba(0,0,1,.25); 
+    
+    display:inline;
+    padding:10px;
+    margin-right:10px;
+    
+    font-family: Open sans, sans-serif;
+	font-size: 18px;
+	color: #a4a8ae;
+}
+
+.list{
+    
+}
+
+.list ul{
+    list-style-type:none;
+    padding:0;
+}
+
+.list li{
+    width:100%;
+    height:75px;
+    margin:0 auto;
+    background-color: #444;
+	-webkit-box-shadow: 0 2px rgba(255,255,255,.75), inset 0 -2px rgba(60,95,134,.1);
+	-moz-box-shadow: 0 2px rgba(255,255,255,.75), inset 0 -2px rgba(60,95,134,.1);
+	box-shadow: 0 2px rgba(255,255,255,.75), inset 0 -2px rgba(60,95,134,.1);
+	background-image: -webkit-linear-gradient(bottom, #e5e8ed, #fff);
+	background-image: -moz-linear-gradient(bottom, #e5e8ed, #fff);
+	background-image: -o-linear-gradient(bottom, #e5e8ed, #fff);
+	background-image: -ms-linear-gradient(bottom, #e5e8ed, #fff);
+	background-image: linear-gradient(to top, #e5e8ed, #fff);
+}
+
+.num{
+    float:left;
+    width: 25px;
+    height:25px;
+    margin-left:6%;
+    margin-top:7%;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 2px #000002;
+	-moz-box-shadow: 0 2px #000002;
+	box-shadow: 0 2px #000002;
+	background-image: -webkit-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -moz-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -o-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -ms-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: linear-gradient(to top, #2c486b, #3d6189);
+}
+
+.tournament{
+    width:80%;
+    height:75px;
+    float:right;
+}
+
+.name{
+    height:18px;
+    font-size:18pt;
+    font-weight:bold;
+}
+
+.player{
+    height:18px;
+    color:#a4a8ae;
+}
+
+

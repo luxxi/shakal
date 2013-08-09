@@ -1,0 +1,67 @@
+body {
+    background-color:black;
+    background-image:url(../img/login-bg.png);
+    width:320px;
+    height:568px;
+    margin:0;
+    padding:0;
+    z-index:0;
+}
+
+.login{
+    position:absolute;
+    margin:0 auto;
+    top:60%;
+    left:15%;
+    z-index:10;
+}
+
+.login input{
+    margin-bottom:12px;
+    width: 226px;
+	height: 45px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #e0e0e0;
+	-webkit-box-shadow: 1px 2px 1px rgba(255,255,255,.35), inset 2px 3px 6px rgba(0,0,1,.35);
+	-moz-box-shadow: 1px 2px 1px rgba(255,255,255,.35), inset 2px 3px 6px rgba(0,0,1,.35);
+	box-shadow: 1px 2px 1px rgba(255,255,255,.35), inset 2px 3px 6px rgba(0,0,1,.35);
+	border: solid 1px #000001;
+	background-image: -webkit-linear-gradient(top, #e8e8e8, #fff 37%);
+	background-image: -moz-linear-gradient(top, #e8e8e8, #fff 37%);
+	background-image: -o-linear-gradient(top, #e8e8e8, #fff 37%);
+	background-image: -ms-linear-gradient(top, #e8e8e8, #fff 37%);
+	background-image: linear-gradient(to bottom, #e8e8e8, #fff 37%);
+    
+    font-family: OpenSans;
+	font-size: 18px;
+	color: #000;
+	text-shadow: 0 2px #fff;
+    z-index:10;
+}
+
+.login button{
+    width: 226px;
+	height: 45px;
+    border:0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #e0e0e0;
+	-webkit-box-shadow: 1px 2px #000002, inset 1px 2px 2px rgba(255,255,255,.18);
+	-moz-box-shadow: 1px 2px #000002, inset 1px 2px 2px rgba(255,255,255,.18);
+	box-shadow: 1px 2px #000002, inset 1px 2px 2px rgba(255,255,255,.18);
+	background-image: -webkit-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -moz-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -o-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -ms-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: linear-gradient(to top, #2c486b, #3d6189);
+    
+    font-family: OpenSans;
+	font-size: 18px;
+	font-weight: bold;
+	color: #e0e0e0;
+	text-shadow: 0 -2px #000;
+    z-index:10;
+    }
