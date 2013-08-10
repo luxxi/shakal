@@ -9,6 +9,8 @@
         <link rel="stylesheet" type="text/css" href="css/create/jquery.mobile.css" />
         <link rel="stylesheet" type="text/css" href="css/create/jqm-datebox-1.1.0.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/create.css" />
+        
         <script type="text/javascript" src="cordova.js"></script>
         <script type="application/javascript" src="js/fastclick.js"></script> 
         <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
@@ -22,9 +24,23 @@
         <title>Shakal</title>
     </head>
     <body>
-        <header><a href="index.html">LOGO</a><button id="logoutBtn">Logout</button></header>
+        <header>
+                New Tournament
+        </header>
+        <div class="menu">
+            <ul>
+                <li id="#">
+                   Back
+                </li>
+                <li id="logoutBtn">
+                   Logout
+                </li>
+            </ul>    
+        </div>
+        
+        
         <label for="tournamentName">Name:</label>
-        <input type="text" id="tournamentName" /><br />
+        <input type="text" class="create" id="tournamentName" /><br />
         <label for="numOfPlayers">Num. of players:</label>
         <input type="number" id="numOfPlayers" min="2" max="20" step="1" value="2" /><br />
         <label for="tournamentPass">Password:</label>
@@ -33,5 +49,7 @@
         <input id="tournamentDate" type="date" data-role="datebox" data-options='{"mode":"datebox"}' />
         <input  id="tournamentTime" type="date" data-role="datebox" data-options='{"mode": "timebox"}' />
         <div class="button" id="createTournamentBtn">Create</div>
+        
+        
     </body>
 </html>

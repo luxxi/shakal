@@ -276,10 +276,10 @@ function GetTournaments() {
         d = JSON.parse(d);
         for (var i = 0; i < d.length; i++) {
             if (d[i]["pass"] == "") {
-                $("#tournaments").append("<li onclick=\"Join(this, true)\"><div class='num'>1</div><div class='tournament'><p class='name'>" + d[i]["name"] + "</p><p class='player'>" + d[i]["count"] + "/" + d[i]["max_users"] + "</p></div></li>");
+                $("#tournaments").append("<li onclick=\"Join(this, true)\"><div class='num'>1</div><div class='tournament'><p class='name'>" + d[i]["name"] + "<br /><span class='player'>" + d[i]["count"] + "/" + d[i]["max_users"] + " Players</span></p></div></li>");
             }
             else {
-                $("#tournaments").append("<li onclick=\"Join(this, false, '" + d[i]["pass"] + "')\"><div class='num'>1</div><div class='tournament'></p><p class='player'>" + d[i]["name"] + "</p><p class='player'>" + d[i]["count"] + "/" + d[i]["max_users"] + "</p></div></li>");
+                $("#tournaments").append("<li onclick=\"Join(this, false, '" + d[i]["pass"] + "')\"><div class='num'>1</div><div class='tournament'></p><p class='player'>" + d[i]["name"] + "<br /><span class='player'>" + d[i]["count"] + "/" + d[i]["max_users"] + " Players</span></p></div></li>");
             }
         }
     });
