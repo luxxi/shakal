@@ -288,12 +288,12 @@ function GetTournaments() {
 function Join(ele, allowed, pas) {
     $.ajaxSetup({async:false});
     if (allowed) {
-        var tour = ele.children[1].children[0].innerHTML.split(" | ")[0];
+        var tour = ele.children[1].children[0].innerHTML.split("<br>")[0];
         AddUserInTournament(localStorage.Username, tour);
         window.location.href = "tournament.html?tournament=" + tour;
     }
     else {
-        var tour = ele.children[1].children[0].innerHTML.split(" | ")[0];
+        var tour = ele.children[1].children[0].innerHTML.split("<br>")[0];
         var pass = window.prompt(tour, "Please enter tournament password");
         //$("#passwordDiv").dialog();
         if (pass == pas) {
