@@ -155,7 +155,7 @@ function onDeviceReady() {
     $(document).ready(function() {
         $("#hitBtn").click(function() {
             if (!dead) {
-                navigator.notification.vibrate(2500);
+                navigator.notification.vibrate(500);
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var x = position.coords.latitude;
                     var y = position.coords.longitude;
