@@ -51,6 +51,10 @@ function onDeviceReady() {
             var pass = $("#pass").val();
             Login(username, pass);
         }) 
+        
+        $("#registerBtn").click(function(){
+           window.location.href = "register.html"; 
+        });
     });
     
     $(document).ready(function() {
@@ -66,7 +70,7 @@ function onDeviceReady() {
             var tournamentPass = $("#tournamentPass").val();
             var tournamentDate = $("#tournamentDate").val();
             var tournamentTime = $("#tournamentTime").val();
-           
+               alert(tournamentDate + " " + tournamentTime);
             $.post(serviceUrl, {
                 act: "create_tournament",
                 name: tournamentName,
@@ -95,7 +99,10 @@ function onDeviceReady() {
                 sex: "M",
                 name: userName
             }, function(d) {
-                //alert(d);
+                if(d != "error password"){
+                    alert("Registration successful");
+                    window.location.href = "index.html";
+                }
             });
         });
     });
@@ -155,7 +162,7 @@ function onDeviceReady() {
     $(document).ready(function() {
         $("#hitBtn").click(function() {
             if (!dead) {
-                navigator.notification.vibrate(2500);
+                navigator.notification.vibrate(500);
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var x = position.coords.latitude;
                     var y = position.coords.longitude;
@@ -288,12 +295,12 @@ function GetTournaments() {
 function Join(ele, allowed, pas) {
     $.ajaxSetup({async:false});
     if (allowed) {
-        var tour = ele.children[1].children[0].innerHTML.split(" | ")[0];
+        var tour = ele.children[1].children[0].innerHTML.split("<br>")[0];
         AddUserInTournament(localStorage.Username, tour);
         window.location.href = "tournament.html?tournament=" + tour;
     }
     else {
-        var tour = ele.children[1].children[0].innerHTML.split(" | ")[0];
+        var tour = ele.children[1].children[0].innerHTML.split("<br>")[0];
         var pass = window.prompt(tour, "Please enter tournament password");
         //$("#passwordDiv").dialog();
         if (pass == pas) {
@@ -319,7 +326,7 @@ function GetTournamentInfo() {
         $("#tournament_starts").html("Tournament starts: " + d["start"]);
         $("#tournament_num").html(d["count"] + " / " + d["max_users"]);
         for (var i = 0; i < d["users"].length; i++) {
-            $("#tournament_users").append("<li><div class='pic'><div class='picture'></div></div><div class='name'>" + d["users"][i]["email"] + "</div></li>");
+            $("#tournament_users").append("<li>" + d["users"][i]["email"] + "</li>");
         }
         /* Začne turnir če je dovolj ljudi v njem
         if (d["count"] >= d["max_users"]) {

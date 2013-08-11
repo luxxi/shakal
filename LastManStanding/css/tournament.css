@@ -60,6 +60,21 @@ header{
 	color: #a4a8ae;
 }
 
+.tournament_starts{
+    font-family: Open sans, sans-serif;
+	font-size: 14px;
+	color: #a4a8ae;
+    text-align:center;
+}
+
+.tournament_num{
+    font-family: Open sans, sans-serif;
+	font-size: 14px;
+	color: #a4a8ae;
+    text-align:center;
+}
+
+
 .list{
     
 }
@@ -108,3 +123,4 @@ header{
     font-weight:bold;
     line-height:70px;
 }
+
