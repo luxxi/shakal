@@ -66,7 +66,7 @@ function onDeviceReady() {
             var tournamentPass = $("#tournamentPass").val();
             var tournamentDate = $("#tournamentDate").val();
             var tournamentTime = $("#tournamentTime").val();
-           
+               alert(tournamentDate + " " + tournamentTime);
             $.post(serviceUrl, {
                 act: "create_tournament",
                 name: tournamentName,
