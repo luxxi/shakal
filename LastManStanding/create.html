@@ -6,8 +6,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         
         <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.10.3.custom.css" />
-        <link rel="stylesheet" type="text/css" href="css/create/jquery.mobile.css" />
-        <link rel="stylesheet" type="text/css" href="css/create/jqm-datebox-1.1.0.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/create/jquery.mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/create/jqm-datebox-1.1.0.css" />-->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/create.css" />
         
@@ -45,9 +45,10 @@
         <input type="number" id="numOfPlayers" min="2" max="20" step="1" value="2" /><br />
         <label for="tournamentPass">Password:</label>
         <input type="password" id="tournamentPass" /><br />
-        <label for="tournamentTime">Time:</label>
-        <input id="tournamentDate" type="date" data-role="datebox" data-options='{"mode":"datebox"}' />
-        <input  id="tournamentTime" type="date" data-role="datebox" data-options='{"mode": "timebox"}' />
+        <label for="tournamentDate">Date (2013-07-23)</label>
+        <input id="tournamentDate" type="text" /> <!--type="date" data-role="datebox" data-options='{"mode":"datebox"}'--> 
+        <label for="tournamentTime">Time (15:26)</label>
+        <input  id="tournamentTime" type="text" /> <!--type="date" data-role="datebox" data-options='{"mode": "timebox"}'-->
         <div class="button" id="createTournamentBtn">Create</div>
         
         
