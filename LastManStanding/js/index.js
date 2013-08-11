@@ -70,7 +70,7 @@ function onDeviceReady() {
             var tournamentPass = $("#tournamentPass").val();
             var tournamentDate = $("#tournamentDate").val();
             var tournamentTime = $("#tournamentTime").val();
-               alert(tournamentDate + " " + tournamentTime);
+            alert(tournamentDate + " " + tournamentTime);
             $.post(serviceUrl, {
                 act: "create_tournament",
                 name: tournamentName,
@@ -79,13 +79,16 @@ function onDeviceReady() {
                 timeframe: tournamentDate + " " + tournamentTime,
                 username: localStorage.Username
             }, function(d) {
-                window.location.href = "tournament.html?tournament=" + tournamentName;
+                if (d == "1")
+                    window.location.href = "tournament.html?tournament=" + tournamentName;
+                else
+                    alert(d);
             });
         });
     });
     
     $(document).ready(function() {
-        $("#registerUser").click(function() {
+       $("#registerUser").click(function() {
             var userMail = $("#userMail").val();
             var userPass = $("#userPass").val();
             var userPass2 = $("#userPass2").val();
@@ -99,9 +102,15 @@ function onDeviceReady() {
                 sex: "M",
                 name: userName
             }, function(d) {
-                if(d != "error password"){
+                try {                 
+                    localStorage.User = d;
+                    d = JSON.parse(d);
+                    localStorage.Username = d["email"];
                     alert("Registration successful");
-                    window.location.href = "index.html";
+                    window.location.href = "tournaments.html";
+                }
+                catch (e) {
+                    alert(d);
                 }
             });
         });
