@@ -51,6 +51,10 @@ function onDeviceReady() {
             var pass = $("#pass").val();
             Login(username, pass);
         }) 
+        
+        $("#registerBtn").click(function(){
+           window.location.href = "register.html"; 
+        });
     });
     
     $(document).ready(function() {
@@ -95,7 +99,10 @@ function onDeviceReady() {
                 sex: "M",
                 name: userName
             }, function(d) {
-                //alert(d);
+                if(d != "error password"){
+                    alert("Registration successful");
+                    window.location.href = "index.html";
+                }
             });
         });
     });
