@@ -5,6 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/tournament.css" />
         <script type="text/javascript" src="cordova.js"></script>
         <script type="application/javascript" src="js/fastclick.js"></script> 
         <script type="text/javascript" src="js/jquery-1.10.0.min.js"></script>
@@ -12,15 +13,34 @@
         <title>Shakal</title>
     </head>
     <body onload="GetTournamentInfo()">
-        <header><a href="index.html">LOGO</a><button id="tournamentLogoutBtn">Logout of tournament</button><button id="logoutBtn">Logout</button></header>
+        <header>
+            <span id="tournament_name"></span>  
+        </header>
         
+        <div class="menu">
+            <ul>
+               <li id="tournamentLogoutBtn">
+                   Exit
+                </li>
+                <li id="refreshBtn">
+                   Refresh
+                </li>
+                <li id="logoutBtn">
+                   Logout
+                </li>
+            </ul>    
+        </div>
+               
         <div>
             <div id="tournament">
                 <p id="tournament_name"></p>
                 <p id="tournament_starts"></p>
-                <button id="refreshBtn">Refresh</button>
                 <p id="tournament_num"></p>
-                <ul id="tournament_users"></ul>
+                <div class="list">
+                    <ul id="tournament_users">
+                        
+                    </ul>
+                </div>
                 <p id="timer" style="font-size: 20px"></p>
             </div>
         </div>

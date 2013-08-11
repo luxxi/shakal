@@ -102,10 +102,3 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
-
-.button{
-    height:44px;
-    width:50px;
-    background-color:#557fc6;
-    color:#fff;
-}

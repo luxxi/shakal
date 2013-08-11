@@ -319,7 +319,7 @@ function GetTournamentInfo() {
         $("#tournament_starts").html("Tournament starts: " + d["start"]);
         $("#tournament_num").html(d["count"] + " / " + d["max_users"]);
         for (var i = 0; i < d["users"].length; i++) {
-            $("#tournament_users").append("<li>" + d["users"][i]["email"] + "</li>");
+            $("#tournament_users").append("<li><div class='pic'><div class='picture'></div></div><div class='name'>" + d["users"][i]["email"] + "</div></li>");
         }
         /* Začne turnir če je dovolj ljudi v njem
         if (d["count"] >= d["max_users"]) {

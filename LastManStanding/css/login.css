@@ -34,10 +34,9 @@ body {
 	background-image: -ms-linear-gradient(top, #e8e8e8, #fff 37%);
 	background-image: linear-gradient(to bottom, #e8e8e8, #fff 37%);
     
-    font-family: OpenSans;
+    font-family: Open sans, sans-serif;
 	font-size: 18px;
 	color: #000;
-	text-shadow: 0 2px #fff;
     z-index:10;
 }
 
@@ -58,7 +57,7 @@ body {
 	background-image: -ms-linear-gradient(bottom, #2c486b, #3d6189);
 	background-image: linear-gradient(to top, #2c486b, #3d6189);
     
-    font-family: OpenSans;
+    font-family: Open sans, sans-serif;
 	font-size: 18px;
 	font-weight: bold;
 	color: #e0e0e0;

@@ -1,7 +1,13 @@
+@font-face{
+	font-family: Open_Sans;
+	src: url(OpenSans-Regular.ttf);
+	font-weight: normal;
+}
+
 body {
     width: 100%;
 	height: 100%;
-	background-color: #e5e8ed !important;
+	background-color: #e5e8ed;
 }
 
 header{
@@ -52,8 +58,63 @@ header{
 }
 
 .create{
-    width:70%;
-    margin: 0 auto;
+    width:75%;
+    margin: 15px auto;
+}
+
+.create label{
+    font-size: 14px;
+	font-family: Open sans, sans-serif;
+    color: #a4a8ae;
+    font-weight:bold;
+}
+
+.create input{
+    width:95%;
+    height:30px;
+    border:none;
+    -webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,1,.25);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,1,.25);
+	box-shadow: 0 1px 3px rgba(0,0,1,.25); 
     
+    font-size: 14px;
+	font-family: Open sans, sans-serif;
+    color: #a4a8ae;
+    font-weight:bold;
+    padding-left:7px;
+}
+
+.numplayers{
+    width:20% !important;
+}
+
+.button{
+	height: 45px;
+    margin: 10px auto;
+    border:0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #e0e0e0;
+	-webkit-box-shadow: 1px 2px #000002, inset 1px 2px 2px rgba(255,255,255,.18);
+	-moz-box-shadow: 1px 2px #000002, inset 1px 2px 2px rgba(255,255,255,.18);
+	box-shadow: 1px 2px #000002, inset 1px 2px 2px rgba(255,255,255,.18);
+	background-image: -webkit-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -moz-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -o-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: -ms-linear-gradient(bottom, #2c486b, #3d6189);
+	background-image: linear-gradient(to top, #2c486b, #3d6189);
+    
+    font-family: Open sans, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #e0e0e0;
+	text-shadow: 0 -2px #000;
+    text-align:center;
+    line-height:45px;
 }
 
