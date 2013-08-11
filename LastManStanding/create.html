@@ -36,19 +36,18 @@
             </ul>
         </div>
 
-        <div çlass="create">
+        <div class="create">
             <label for="tournamentName">Name:</label>
-            <input type="text" id="tournamentName" /><br />
+            <input type="text" class="create" id="tournamentName" /><br />
             <label for="numOfPlayers">Num. of players:</label>
             <input type="number" id="numOfPlayers" min="2" max="20" step="1" value="2" /><br />
             <label for="tournamentPass">Password:</label>
             <input type="password" id="tournamentPass" /><br />
-            <label for="tournamentDate">Start Date (2013-07-23)</label>
-            <input id="tournamentDate" type="text" />
-            <label for="tournamentDate">Time 13:45</label>
-            <input  id="tournamentTime" type="text" />
+            <label for="tournamentDate">Date (2013-07-23)</label>
+            <input id="tournamentDate" type="text" /> <!--type="date" data-role="datebox" data-options='{"mode":"datebox"}'-->
+            <label for="tournamentTime">Time (15:26)</label>
+            <input  id="tournamentTime" type="text" /> <!--type="date" data-role="datebox" data-options='{"mode": "timebox"}'-->
             <div class="button" id="createTournamentBtn">Create</div>
         </div>
-
     </body>
 </html>
