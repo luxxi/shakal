@@ -31,6 +31,7 @@ header{
 .menu{
     padding-top:3%;
     padding-bottom:1px;
+    border:solid 1px black;
 }
 
 .menu ul{
@@ -38,7 +39,7 @@ header{
     display: block;
     padding-left:0;
     margin:0 auto;
-    width:245px;
+    width:250px;
 }
     
 .menu li{
